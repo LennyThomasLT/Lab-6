@@ -1,7 +1,14 @@
 students = []
 
+def is_valid_score(score):
+    return 0 <= score <= 100
+
 def add_student(name, score):
+    if not is_valid_score(score):
+        print("Invalid score")
+        return False
     students.append((name, score))
+    return True
 
 def calculate_grade(score):
     if score >= 80:
@@ -20,4 +27,5 @@ def show_students():
 
 if __name__ == "__main__":
     add_student("Alice", 85)
+    add_student("Bob", 150)
     show_students()
